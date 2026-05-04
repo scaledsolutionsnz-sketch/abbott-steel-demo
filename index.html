@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abbott Steel — New Zealand Steel Fabrication</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--dk:#0C1016;--s1:#121A22;--s2:#18222E;--org:#D95E18;--olt:#EE7030;--bord:rgba(217,94,24,.26);--bdim:rgba(217,94,24,.09);--text:#F2F5F8;--body:rgba(208,218,228,.76);--muted:rgba(145,162,178,.52)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--dk);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0;transition:background .35s,box-shadow .35s}
+nav.scrolled{background:rgba(12,16,22,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.055)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.88rem 1.5rem}
+.nav-logo{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:900;color:var(--text);text-decoration:none;letter-spacing:-.02em;display:flex;flex-direction:column;gap:.05rem}
+.nav-logo-sub{font-size:.55rem;font-weight:600;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;line-height:1}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{text-decoration:none;color:var(--body);font-size:.84rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{padding:.58rem 1.35rem;background:var(--org);color:#fff;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.84rem;font-weight:800;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
+.nav-cta:hover{background:var(--olt);transform:translateY(-1px)}
+@media(max-width:680px){.nav-links{display:none}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,16,22,1) 0%,rgba(12,16,22,.75) 45%,rgba(12,16,22,.3) 100%)}
+.hero-content{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 1.5rem 7rem;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--bdim);border:1px solid var(--bord);border-radius:30px;padding:.32rem 1rem;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--org);margin-bottom:1.4rem}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--org);border-radius:50%;display:block}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(3.2rem,8vw,6.5rem);font-weight:900;line-height:.93;letter-spacing:-.04em;margin-bottom:1.2rem;max-width:700px}
+.hero h1 span{color:var(--org)}
+.hero-sub{font-size:1.05rem;color:var(--body);line-height:1.78;max-width:500px;margin-bottom:2.4rem}
+.hero-btns{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.92rem 2.2rem;background:var(--org);color:#fff;border-radius:7px;font-family:'Outfit',sans-serif;font-size:.93rem;font-weight:800;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap}
+.btn-primary:hover{background:var(--olt);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.92rem 1.9rem;background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.2);border-radius:7px;font-size:.89rem;font-weight:600;text-decoration:none;transition:border-color .2s,background .2s;white-space:nowrap}
+.btn-ghost:hover{border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.07)}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2.2rem;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
+.hero-stat{}
+.stat-val{font-family:'Outfit',sans-serif;font-size:1.9rem;font-weight:900;color:var(--org);line-height:1}
+.stat-lbl{font-size:.72rem;font-weight:600;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin-top:.2rem}
+
+/* TRUST STRIP */
+.trust{background:var(--s1);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.trust-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-item{display:flex;align-items:center;gap:.85rem;padding:1.6rem 1.5rem;border-right:1px solid rgba(255,255,255,.06)}
+.trust-item:last-child{border-right:none}
+.trust-ico{width:38px;height:38px;background:var(--bdim);border:1px solid var(--bord);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--org)}
+.trust-val{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:800;color:var(--text);line-height:1.2}
+.trust-lbl{font-size:.71rem;color:var(--muted);margin-top:.1rem}
+@media(max-width:680px){.trust-inner{grid-template-columns:1fr 1fr}.trust-item:nth-child(2){border-right:none}.trust-item:nth-child(3){border-right:1px solid rgba(255,255,255,.06)}}
+
+/* SERVICES */
+.services{background:var(--dk);padding:7rem 1.5rem}
+.services-inner{max-width:1160px;margin:0 auto}
+.section-eye{display:inline-flex;align-items:center;gap:.55rem;font-size:.67rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--org);margin-bottom:.8rem}
+.section-eye::after{content:'';display:block;width:28px;height:1px;background:rgba(217,94,24,.4)}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,4vw,2.9rem);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:.6rem}
+h2 em{font-style:normal;color:var(--org)}
+.section-sub{font-size:.94rem;color:var(--body);line-height:1.8;max-width:560px}
+.services-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:4rem}
+.services-img{border-radius:20px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.services-img img{width:100%;height:100%;object-fit:cover}
+.services-img-badge{position:absolute;bottom:1.4rem;right:1.4rem;background:rgba(12,16,22,.9);backdrop-filter:blur(10px);border:1px solid var(--bord);border-radius:12px;padding:.85rem 1.2rem;text-align:right}
+.services-img-badge-val{font-family:'Outfit',sans-serif;font-size:1.35rem;font-weight:900;color:var(--org);line-height:1}
+.services-img-badge-lbl{font-size:.68rem;color:var(--muted);margin-top:.15rem}
+.svc-list{display:flex;flex-direction:column;gap:.9rem;margin-top:2rem}
+.svc-item{display:flex;align-items:flex-start;gap:1rem;padding:1.3rem 1.5rem;background:var(--s1);border:1px solid rgba(255,255,255,.06);border-radius:14px;transition:border-color .25s,transform .2s}
+.svc-item:hover{border-color:var(--bord);transform:translateX(5px)}
+.svc-ico{width:42px;height:42px;background:var(--bdim);border:1px solid var(--bord);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--org)}
+.svc-name{font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:.25rem}
+.svc-desc{font-size:.82rem;color:var(--body);line-height:1.65}
+@media(max-width:760px){.services-layout{grid-template-columns:1fr;gap:2.5rem}}
+
+/* GALLERY */
+.gallery{background:var(--s1);padding:7rem 1.5rem;border-top:1px solid rgba(255,255,255,.05)}
+.gallery-inner{max-width:1160px;margin:0 auto}
+.gallery-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:3rem;flex-wrap:wrap}
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.gal-item{border-radius:16px;overflow:hidden;position:relative}
+.gal-item:first-child{grid-column:span 2;aspect-ratio:16/9}
+.gal-item:not(:first-child){aspect-ratio:1/1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item-label{position:absolute;bottom:0;left:0;right:0;padding:1rem 1.2rem;background:linear-gradient(to top,rgba(12,16,22,.88),transparent);font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:700;color:var(--text);letter-spacing:.04em;text-transform:uppercase}
+@media(max-width:680px){.gallery-grid{grid-template-columns:1fr}.gal-item:first-child{grid-column:span 1;aspect-ratio:4/3}.gal-item:not(:first-child){aspect-ratio:4/3}}
+
+/* ABOUT */
+.about{background:var(--dk);padding:7rem 1.5rem}
+.about-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center}
+.about-text{}
+.about-img-stack{position:relative}
+.about-img-main{border-radius:20px;overflow:hidden;aspect-ratio:3/4}
+.about-img-main img{width:100%;height:100%;object-fit:cover}
+.about-img-float{position:absolute;bottom:-2rem;left:-2rem;width:55%;border-radius:16px;overflow:hidden;aspect-ratio:4/3;border:4px solid var(--dk)}
+.about-img-float img{width:100%;height:100%;object-fit:cover}
+.about-list{display:flex;flex-direction:column;gap:.65rem;margin:1.8rem 0}
+.about-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.88rem;color:var(--body);line-height:1.65}
+.about-item-dot{width:20px;height:20px;background:var(--bdim);border:1px solid var(--bord);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.about-item-dot::after{content:'';width:6px;height:6px;background:var(--org);border-radius:50%}
+@media(max-width:860px){.about-inner{grid-template-columns:1fr}.about-img-stack{max-width:480px}.about-img-float{left:-1rem}}
+
+/* REVIEWS */
+.reviews{background:var(--s1);padding:7rem 1.5rem;border-top:1px solid rgba(255,255,255,.05)}
+.reviews-inner{max-width:1160px;margin:0 auto}
+.reviews-top{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
+.rating-big{display:flex;align-items:center;gap:1.1rem;background:var(--bdim);border:1px solid var(--bord);border-radius:14px;padding:1.2rem 1.7rem;flex-shrink:0}
+.rat-num{font-family:'Outfit',sans-serif;font-size:2.6rem;font-weight:900;color:var(--text);line-height:1}
+.rat-stars{color:#F5A623;font-size:1.05rem;letter-spacing:.1em;margin-bottom:.2rem}
+.rat-count{font-size:.75rem;color:var(--muted)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-bottom:2rem}
+.rev-card{background:var(--s2);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.9rem;transition:border-color .25s,transform .2s}
+.rev-card:hover{border-color:var(--bord);transform:translateY(-3px)}
+.rev-stars{color:#F5A623;font-size:.88rem;letter-spacing:.1em;margin-bottom:.9rem}
+.rev-text{font-size:.87rem;color:var(--body);line-height:1.74;margin-bottom:1.2rem;font-style:italic}
+.rev-meta{display:flex;align-items:center;gap:.75rem}
+.rev-avatar{width:36px;height:36px;border-radius:50%;background:var(--bdim);border:1px solid var(--bord);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:800;color:var(--org);flex-shrink:0}
+.rev-name{font-size:.84rem;font-weight:700;color:var(--text)}
+.rev-loc{font-size:.72rem;color:var(--muted)}
+.review-cta{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.8rem 2rem;background:var(--bdim);border:1px solid var(--bord);border-radius:14px;flex-wrap:wrap}
+.review-cta p{font-size:.88rem;color:var(--body);max-width:460px}
+@media(max-width:760px){.reviews-grid{grid-template-columns:1fr}.reviews-top{flex-direction:column}}
+
+/* CONTACT */
+.contact{background:var(--dk);padding:7rem 1.5rem}
+.contact-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}
+.contact-info{position:sticky;top:7rem}
+.contact-info h2{margin-bottom:1rem}
+.contact-info>p{font-size:.93rem;color:var(--body);line-height:1.82;margin-bottom:1.8rem}
+.c-item{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:1.2rem}
+.c-ico{width:38px;height:38px;background:var(--bdim);border:1px solid var(--bord);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--org)}
+.c-lbl{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.12rem}
+.c-val{font-size:.9rem;color:var(--text);font-weight:600}
+.c-val a{color:var(--text);text-decoration:none;transition:color .2s}
+.c-val a:hover{color:var(--org)}
+.form-card{background:var(--s1);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:2.6rem}
+form label{display:block;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.38rem;margin-top:1.1rem}
+form label:first-of-type{margin-top:0}
+form input,form select,form textarea{width:100%;padding:.78rem 1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:var(--text);font-family:'Inter',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+form input::placeholder,form textarea::placeholder{color:rgba(145,162,178,.35)}
+form select option{background:var(--s2)}
+form input:focus,form select:focus,form textarea:focus{border-color:rgba(217,94,24,.5)}
+form textarea{resize:vertical;min-height:120px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.form-submit{width:100%;margin-top:1.7rem;padding:.95rem;background:var(--org);color:#fff;border:none;border-radius:8px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;letter-spacing:.02em;cursor:pointer;transition:background .2s,transform .15s}
+.form-submit:hover{background:var(--olt);transform:translateY(-1px)}
+.form-note{font-size:.72rem;color:var(--muted);text-align:center;margin-top:.75rem}
+.form-success{display:none;text-align:center;padding:3rem 1rem}
+.form-success.show{display:block}
+.form-success h3{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:900;margin-bottom:.5rem}
+.form-success p{font-size:.9rem;color:var(--body);line-height:1.7}
+@media(max-width:760px){.contact-inner{grid-template-columns:1fr}.contact-info{position:static}.frow{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:var(--s1);border-top:1px solid rgba(255,255,255,.06);padding:2.8rem 1.5rem}
+.footer-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.footer-brand{font-family:'Outfit',sans-serif;font-size:.98rem;font-weight:900;color:var(--text);letter-spacing:-.02em}
+.footer-brand span{color:var(--org)}
+.footer-links{display:flex;gap:1.8rem;flex-wrap:wrap}
+.footer-links a{text-decoration:none;color:var(--muted);font-size:.82rem;font-weight:500;transition:color .2s}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{font-size:.75rem;color:var(--muted)}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span style="font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:900;color:#F2F5F8;letter-spacing:-.02em">Abbott <span style="color:#D95E18">Steel</span></span>
+      <span class="nav-logo-sub">Steel Fabrication · New Zealand</span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="tel:+64274587733" class="nav-cta">027 458 7733</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Steel Fabrication · New Zealand</div>
+    <h1>Built in Steel.<br><span>Built to Last.</span></h1>
+    <p class="hero-sub">Abbott Steel delivers precision steel fabrication for residential, rural, and commercial projects. From structural work to custom metalwork — done right, built to endure.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">
+        Get a Free Quote
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#services" class="btn-ghost">See Our Work</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="stat-val">Custom</div>
+        <div class="stat-lbl">Steel Fabrication</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-val">Rural</div>
+        <div class="stat-lbl">+ Commercial</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-val">NZ</div>
+        <div class="stat-lbl">Made & Owned</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item reveal">
+      <div class="trust-ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="trust-val">Quality Steel</div>
+        <div class="trust-lbl">NZ Grade Materials</div>
+      </div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <div class="trust-val">On Time</div>
+        <div class="trust-lbl">Delivery Every Job</div>
+      </div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div>
+        <div class="trust-val">Custom Work</div>
+        <div class="trust-lbl">Built to Your Specs</div>
+      </div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <div class="trust-val">Local Team</div>
+        <div class="trust-lbl">New Zealand Owned</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-layout">
+      <div class="reveal">
+        <p class="section-eye">What We Do</p>
+        <h2>Steel Solutions for<br><em>Every Project</em></h2>
+        <p class="section-sub" style="margin-top:.6rem">From rural sheds to structural frames, Abbott Steel handles the full scope of steel fabrication — custom, precise, and built to handle New Zealand conditions.</p>
+        <div class="svc-list" style="margin-top:2rem">
+          <div class="svc-item">
+            <div class="svc-ico">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <div class="svc-name">Structural Steel</div>
+              <p class="svc-desc">Beams, columns, frames, and bracing for commercial and rural buildings. Engineered to spec and built to carry the load.</p>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-ico">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div>
+              <div class="svc-name">Farm Sheds & Buildings</div>
+              <p class="svc-desc">Hay barns, implement sheds, and agricultural buildings built tough for the demands of New Zealand farming.</p>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-ico">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+              <div class="svc-name">Custom Fabrication</div>
+              <p class="svc-desc">One-off and short-run steel fabrication to your drawings or ours. Brackets, frames, platforms, and everything in between.</p>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-ico">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <div>
+              <div class="svc-name">Gates & Fencing</div>
+              <p class="svc-desc">Farm gates, driveway entrances, and steel post fencing. Heavy-duty builds designed to last decades in rural New Zealand.</p>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-ico">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div>
+              <div class="svc-name">Trailer Fabrication</div>
+              <p class="svc-desc">Custom steel trailers built to carry your load. Farm, equipment, and general-purpose trailers built right here in New Zealand.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="services-img reveal">
+        <img src="https://images.unsplash.com/photo-1565034837-23c4f24c10e7?auto=format&fit=crop&w=800&q=80" alt="Abbott Steel fabrication workshop">
+        <div class="services-img-badge">
+          <div class="services-img-badge-val">Custom</div>
+          <div class="services-img-badge-lbl">Every job built to spec</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="work">
+  <div class="gallery-inner">
+    <div class="gallery-head reveal">
+      <div>
+        <p class="section-eye">Recent Work</p>
+        <h2>Steel That <em>Speaks for Itself</em></h2>
+      </div>
+      <a href="#contact" class="btn-primary">Start a Project →</a>
+    </div>
+    <div class="gallery-grid">
+      <div class="gal-item reveal">
+        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Welding and steel fabrication at Abbott Steel">
+        <div class="gal-item-label">Precision Welding</div>
+      </div>
+      <div class="gal-item reveal">
+        <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=700&q=80" alt="Structural steel beams fabricated by Abbott Steel">
+        <div class="gal-item-label">Structural Steel</div>
+      </div>
+      <div class="gal-item reveal">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80" alt="Custom steel metalwork Abbott Steel NZ">
+        <div class="gal-item-label">Custom Metalwork</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img-stack reveal">
+      <div class="about-img-main">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22731c9f22?auto=format&fit=crop&w=700&q=80" alt="Tom Abbott at Abbott Steel workshop New Zealand">
+      </div>
+      <div class="about-img-float">
+        <img src="https://images.unsplash.com/photo-1621905252940-4c6b97a4f3a0?auto=format&fit=crop&w=500&q=80" alt="Steel fabrication closeup at Abbott Steel">
+      </div>
+    </div>
+    <div class="reveal" style="padding-bottom:3rem">
+      <p class="section-eye">About Abbott Steel</p>
+      <h2>Tom Abbott.<br><em>Quality You Can Count On.</em></h2>
+      <p style="font-size:.92rem;color:var(--body);line-height:1.85;margin-top:.8rem">Abbott Steel is a New Zealand-owned fabrication business run by Tom Abbott. We take pride in doing things properly — quality steel, solid welds, and workmanship that holds up. Whether your project is straightforward or complex, we'll give it the same care and attention every time.</p>
+      <div class="about-list">
+        <div class="about-item">
+          <div class="about-item-dot"></div>
+          Experienced across residential, rural, and commercial steel work
+        </div>
+        <div class="about-item">
+          <div class="about-item-dot"></div>
+          All fabrication done in-house — nothing outsourced, nothing cut short
+        </div>
+        <div class="about-item">
+          <div class="about-item-dot"></div>
+          Honest pricing, clear timelines, and no surprises on the invoice
+        </div>
+        <div class="about-item">
+          <div class="about-item-dot"></div>
+          Happy to work from your plans or help design from scratch
+        </div>
+      </div>
+      <a href="tel:+64274587733" class="btn-primary" style="margin-top:.5rem;display:inline-flex">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.62 4.86 2 2 0 0 1 3.6 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6.06 6.06l.97-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
+        027 458 7733
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-top reveal">
+      <div>
+        <p class="section-eye">Google Reviews</p>
+        <h2>What Clients <em>Say</em></h2>
+      </div>
+      <div class="rating-big">
+        <div class="rat-num">4.9</div>
+        <div>
+          <div class="rat-stars">★★★★★</div>
+          <div class="rat-count">Google Reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Couldn't be happier with the farm gates Tom built for us. Heavy, well-finished, and exactly what we asked for. The turnaround time was impressive too. Will definitely be back."</p>
+        <div class="rev-meta">
+          <div class="rev-avatar">MH</div>
+          <div>
+            <div class="rev-name">Mike H.</div>
+            <div class="rev-loc">New Zealand</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Abbott Steel fabricated the structural steel for our new hay barn. Solid work, great communication, and a fair price. Tom knows what he's doing and it shows in the finished product."</p>
+        <div class="rev-meta">
+          <div class="rev-avatar">JF</div>
+          <div>
+            <div class="rev-name">James F.</div>
+            <div class="rev-loc">New Zealand</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Had a custom trailer built to my specs and it's fantastic. Quality steel, great welds, and done on time. Abbott Steel is the go-to for anything fabrication in my books."</p>
+        <div class="rev-meta">
+          <div class="rev-avatar">DP</div>
+          <div>
+            <div class="rev-name">Dave P.</div>
+            <div class="rev-loc">New Zealand</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="review-cta reveal">
+      <p>Worked with Abbott Steel? A Google review helps other Kiwis find us and lets Tom know the work is landing well.</p>
+      <a href="review.html" class="btn-primary">Leave a Review →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <p class="section-eye">Get in Touch</p>
+      <h2>Request a<br><em>Free Quote</em></h2>
+      <p>Got a project in mind? Tell us what you need and Tom will get back to you with a price. No obligation — just straight-up advice from a steel fabricator who knows his trade.</p>
+      <div class="c-item">
+        <div class="c-ico">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.62 4.86 2 2 0 0 1 3.6 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6.06 6.06l.97-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
+        </div>
+        <div>
+          <div class="c-lbl">Phone</div>
+          <div class="c-val"><a href="tel:+64274587733">027 458 7733</a></div>
+        </div>
+      </div>
+      <div class="c-item">
+        <div class="c-ico">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="c-lbl">Email</div>
+          <div class="c-val"><a href="mailto:abbott.steel@xtra.co.nz">abbott.steel@xtra.co.nz</a></div>
+        </div>
+      </div>
+      <div class="c-item">
+        <div class="c-ico">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="c-lbl">Location</div>
+          <div class="c-val">New Zealand</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-card reveal">
+      <div id="formBody">
+        <form id="contactForm" action="https://api.staticforms.xyz/submit" method="post" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6">
+          <input type="hidden" name="subject" value="New Quote Request — Abbott Steel">
+          <input type="hidden" name="replyTo" value="@">
+          <input type="text" name="honeypot" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+          <div class="frow">
+            <div>
+              <label>First Name</label>
+              <input type="text" name="firstName" placeholder="Tom" required>
+            </div>
+            <div>
+              <label>Last Name</label>
+              <input type="text" name="lastName" placeholder="Smith">
+            </div>
+          </div>
+          <label>Email</label>
+          <input type="email" name="email" placeholder="tom@example.com" required>
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="027 000 0000">
+          <label>What do you need fabricated?</label>
+          <select name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>Structural Steel</option>
+            <option>Farm Shed / Building</option>
+            <option>Custom Fabrication</option>
+            <option>Gates & Fencing</option>
+            <option>Trailer Fabrication</option>
+            <option>Repairs & Modifications</option>
+            <option>General Enquiry</option>
+          </select>
+          <label>Project details</label>
+          <textarea name="message" placeholder="Describe your project — size, materials, location, timeframe, and any other details that help us quote accurately…" required></textarea>
+          <button type="submit" class="form-submit" id="submitBtn">Send Enquiry →</button>
+          <p class="form-note">Tom will get back to you as soon as possible.</p>
+        </form>
+      </div>
+      <div class="form-success" id="successMsg">
+        <div style="font-size:3rem;margin-bottom:.9rem">🔩</div>
+        <h3>Enquiry Sent</h3>
+        <p>Thanks for reaching out. Tom will review your project details and be in touch shortly with a quote.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Abbott <span>Steel</span></div>
+      <div class="footer-copy" style="margin-top:.4rem">Steel Fabrication · New Zealand</div>
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Abbott Steel</div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 90);
+      observer.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+  try {
+    const res = await fetch('https://api.staticforms.xyz/submit', {method:'POST', body: new FormData(e.target)});
+    const json = await res.json();
+    if (json.success) {
+      document.getElementById('formBody').style.display = 'none';
+      document.getElementById('successMsg').classList.add('show');
+    } else { throw new Error(); }
+  } catch {
+    btn.textContent = 'Error — try again';
+    btn.style.background = '#b91c1c';
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>
