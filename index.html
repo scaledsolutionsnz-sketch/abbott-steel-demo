@@ -6,7 +6,7 @@
 <title>Abbott Steel — New Zealand Steel Fabrication</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 :root{
   --dk:#0C1016;--s1:#111820;--s2:#17212C;
@@ -24,10 +24,9 @@ body{font-family:'Inter',sans-serif;background:var(--dk);color:var(--text);-webk
 nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent;background:linear-gradient(to bottom,rgba(12,16,22,.65) 0%,transparent 100%)}
 nav.scrolled{background:rgba(12,16,22,.95)!important;backdrop-filter:blur(20px);border-color:var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;max-width:1120px;margin:0 auto;padding:0 2rem}
-.nav-logo{text-decoration:none;display:flex;flex-direction:column;gap:.15rem;line-height:1}
-.nav-logo-main{font-family:'Outfit',sans-serif;font-size:1.08rem;font-weight:900;color:#fff;letter-spacing:-.02em}
-.nav-logo-main span{color:var(--org)}
-.nav-logo-sub{font-size:.5rem;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.18em;text-transform:uppercase}
+.nav-logo{text-decoration:none;display:flex;flex-direction:column;gap:0;line-height:1}
+.nav-logo-main{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;font-weight:400;color:#fff;letter-spacing:.06em;line-height:.95}
+.nav-logo-sub{font-size:.5rem;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.18em;text-transform:uppercase;display:none}
 .nav-links{display:flex;align-items:center;gap:2rem}
 .nav-links a{text-decoration:none;color:rgba(255,255,255,.6);font-size:.82rem;font-weight:500;letter-spacing:.01em;transition:color .2s}
 .nav-links a:hover{color:#fff}
@@ -202,8 +201,7 @@ footer{background:var(--s1);border-top:1px solid var(--line);padding:2.4rem 0}
 <nav id="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <span class="nav-logo-main">Abbott <span>Steel</span></span>
-      <span class="nav-logo-sub">Steel Fabrication · New Zealand</span>
+      <span class="nav-logo-main">Abbott Steel Ltd</span>
     </a>
     <div class="nav-links">
       <a href="#services">Services</a>
