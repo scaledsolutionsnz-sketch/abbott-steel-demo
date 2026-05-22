@@ -553,11 +553,11 @@ footer{background:var(--s1);border-top:1px solid var(--line);padding:2.4rem 0}
       </div>
       <div class="form-card reveal">
         <div id="formBody">
-          <form id="contactForm" action="https://api.staticforms.xyz/submit" method="post" onsubmit="handleSubmit(event)">
-            <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6">
-            <input type="hidden" name="subject" value="New Quote Request — Abbott Steel">
-            <input type="hidden" name="replyTo" value="@">
-            <input type="text" name="honeypot" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+          <form id="contactForm" action="https://formsubmit.co/wiremu.bartlett72@gmail.com" method="post" onsubmit="handleSubmit(event)">
+            <input type="hidden" name="_subject" value="New Quote Request — Abbott Steel">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
             <div class="frow">
               <div>
                 <label>First Name</label>
@@ -632,9 +632,8 @@ async function handleSubmit(e) {
   const btn = document.getElementById('submitBtn');
   btn.textContent = 'Sending…'; btn.disabled = true;
   try {
-    const res = await fetch('https://api.staticforms.xyz/submit', {method:'POST', body: new FormData(e.target)});
-    const json = await res.json();
-    if (json.success) { document.getElementById('formBody').style.display='none'; document.getElementById('successMsg').classList.add('show'); }
+    const res = await fetch(e.target.action, {method:'POST', body: new FormData(e.target), headers: {Accept: 'application/json'}});
+    if (res.ok) { document.getElementById('formBody').style.display='none'; document.getElementById('successMsg').classList.add('show'); }
     else { throw new Error(); }
   } catch { btn.textContent='Error — try again'; btn.style.background='#b91c1c'; btn.disabled=false; }
 }
