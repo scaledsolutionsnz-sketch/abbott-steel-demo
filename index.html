@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abbott Steel — New Zealand Steel Fabrication</title>
+<title>Abbott Steel Ltd | Steel Fabrication &amp; Earthquake Strengthening, Dunedin</title>
+<meta name="description" content="Dunedin steel fabrication by Tom Abbott and his team: structural steel, house beams, balustrades, trailers, custom fabrication and earthquake strengthening. Call 027 458 7733.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Abbott Steel Ltd, Dunedin steel fabrication">
+<meta property="og:description" content="Structural steel, earthquake strengthening, balustrades, trailers and custom fabrication from Kaikorai Valley Road, Dunedin. Call Tom on 027 458 7733.">
+<meta property="og:image" content="images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="900">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -11,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Inter:wght@400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="images/img2.webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/img2-1920.webp" imagesrcset="images/img2-1080.webp 1080w, images/img2-1920.webp 1920w, images/img2-3840.webp 3840w" imagesizes="100vw" fetchpriority="high">
 <style>
 :root{
   --dk:#0C1016;--s1:#111820;--s2:#17212C;
@@ -38,10 +45,31 @@ nav.scrolled{background:rgba(12,16,22,.95)!important;backdrop-filter:blur(20px)}
 .nav-cta{padding:.55rem 1.3rem;background:var(--org);color:#fff!important;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:800;transition:background .2s;white-space:nowrap}
 .nav-cta:hover{background:var(--olt)!important}
 @media(max-width:700px){.nav-links{display:none}[style*="position:sticky"]{position:relative!important;top:auto!important}}
+.nav-m{display:none;align-items:center;gap:.7rem}
+.burger{width:44px;height:44px;border:1px solid rgba(255,255,255,.18);border-radius:8px;background:rgba(12,16,22,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer}
+.burger span{width:18px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .25s}
+.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-open .burger span:nth-child(2){opacity:0}
+.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:700px){
+  .nav-m{display:flex}
+  .nav-m .nav-cta{padding:.7rem 1rem;min-height:44px;display:inline-flex;align-items:center;text-decoration:none}
+  .menu-open .nav-links{display:flex;position:fixed;top:70px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;padding:.5rem 2rem 1.5rem;background:rgba(12,16,22,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+  .menu-open .nav-links a{font-size:1.05rem;padding:.85rem 0;width:100%;border-bottom:1px solid var(--line)}
+  .menu-open .nav-links .nav-cta{display:none}
+  .hero-btns a{width:100%;justify-content:center}
+}
 
 /* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;margin-bottom:-2px}
-.hero-bg{position:absolute;inset:0 0 -2px 0;background:url('images/img2.webp') center/cover no-repeat}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;margin-bottom:-2px;overflow:hidden;background:var(--dk)}
+.hero-bg{position:absolute;inset:0 0 -2px 0;background:var(--dk)}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+.hero-slide.active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-rev{display:inline-flex;align-items:center;gap:.8rem;margin-top:1.6rem;padding:.7rem 1.1rem;border-radius:10px;background:rgba(12,16,22,.38);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16);color:#fff;text-decoration:none;font-size:.82rem}
+.hero-rev .st{color:#F5A623;letter-spacing:.1em}
+.hero-rev b{font-family:'Outfit',sans-serif;font-weight:800}
+.hero-rev:hover{border-color:var(--bord)}
 .hero-grad{position:absolute;inset:0 0 -2px 0;background:linear-gradient(to top,rgba(12,16,22,.72) 0%,rgba(12,16,22,.65) 25%,rgba(12,16,22,.35) 60%,rgba(12,16,22,.15) 100%)}
 .hero-content{position:relative;z-index:1;width:100%;max-width:1120px;margin:0 auto;padding:0 2rem 5rem}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--org);margin-bottom:1.8rem}
@@ -185,6 +213,50 @@ form textarea{resize:vertical;min-height:118px}
 .form-success p{font-size:.88rem;color:var(--body);line-height:1.7}
 @media(max-width:780px){.contact-inner{grid-template-columns:1fr;gap:3rem}.frow{grid-template-columns:1fr}}
 
+/* CTA CARD (replaces the old form) */
+.cta-card{background:var(--s1);border:1px solid var(--line);border-radius:18px;padding:2.4rem}
+.cta-card h3{font-family:'Outfit',sans-serif;font-size:1.35rem;font-weight:900;margin-bottom:.5rem}
+.cta-card p{font-size:.88rem;color:var(--body);line-height:1.7;margin-bottom:1.6rem}
+.cta-btns{display:flex;flex-direction:column;gap:.8rem}
+.cta-btns a{justify-content:center;min-height:52px;font-size:1rem}
+.cta-note{font-size:.78rem;color:var(--muted);margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid var(--line);line-height:1.6}
+.cta-note a{color:var(--olt)}
+.socials{display:flex;gap:.6rem;margin-top:1.6rem}
+.socials a{width:44px;height:44px;border:1px solid var(--line);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--org);transition:border-color .2s,color .2s}
+.socials a:hover{border-color:var(--bord);color:var(--text)}
+/* MAP */
+.map-band{padding:0 0 5rem}
+.map-frame{width:100%;height:420px;border:0;display:block;border-radius:18px;filter:grayscale(.35) contrast(1.05)}
+/* FAQ */
+.faq-sec{padding:7rem 0;background:var(--s1);border-top:1px solid var(--line)}
+.faq-list{max-width:820px;margin-top:2.6rem}
+.faq{border-bottom:1px solid var(--line)}
+.faq:first-child{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1.2rem;padding:1.35rem .2rem;min-height:44px;font-family:'Outfit',sans-serif;font-size:1.02rem;font-weight:700;color:var(--text)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';flex-shrink:0;width:30px;height:30px;border:1px solid var(--bord);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--org);font-size:1.2rem;transition:transform .25s}
+.faq[open] summary::after{transform:rotate(45deg)}
+.faq summary:hover{color:var(--olt)}
+.faq summary:focus-visible{outline:2px solid var(--org);outline-offset:3px;border-radius:6px}
+.faq p{font-size:.9rem;color:var(--body);line-height:1.8;padding:0 3rem 1.4rem .2rem;max-width:68ch}
+.faq p a{color:var(--olt)}
+@media(max-width:600px){.faq p{padding-right:.2rem}}
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.4rem;max-width:760px}
+.team-card{background:var(--s2);border:1px solid var(--line);border-radius:14px;padding:1.6rem;display:flex;gap:1rem;align-items:flex-start}
+.team-av{width:52px;height:52px;border-radius:50%;background:var(--dk);border:2px solid var(--org);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:900;color:var(--text);flex-shrink:0}
+.team-card h3{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800}
+.team-role{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--org);margin:.15rem 0 .45rem}
+.team-card p{font-size:.84rem;color:var(--body);line-height:1.65}
+@media(max-width:640px){.team-grid{grid-template-columns:1fr}}
+.rev-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.footer-links a,.footer-legal a{min-height:24px}
+.footer-legal{display:flex;gap:1.2rem;flex-wrap:wrap}
+.footer-legal a{color:var(--muted);font-size:.75rem;text-decoration:none}
+.footer-legal a:hover{color:var(--text)}
+@media(max-width:600px){.cta-card{padding:1.6rem 1.25rem}.wrap{padding:0 1.25rem}.nav-inner{padding:0 1.25rem}.hero-content{padding:0 1.25rem 4rem}}
+@media(prefers-reduced-motion:reduce){.hero-slide{transition:none}.reveal{opacity:1;transform:none;transition:none}}
+
 /* FOOTER */
 footer{background:var(--s1);border-top:1px solid var(--line);padding:2.4rem 0}
 .footer-inner{max-width:1120px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
@@ -258,31 +330,41 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
     <a href="#" class="nav-logo">
       <span class="nav-logo-main">Abbott Steel Ltd</span>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="#services">Services</a>
       <a href="#earthquake">Earthquake Strengthening</a>
       <a href="#work">Our Work</a>
       <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
       <a href="tel:+64274587733" class="nav-cta">027 458 7733</a>
+    </div>
+    <div class="nav-m">
+      <a href="tel:+64274587733" class="nav-cta" aria-label="Call Tom on 027 458 7733">Call Tom</a>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-slide active"><img src="images/img2-1920.webp" srcset="images/img2-1080.webp 1080w, images/img2-1920.webp 1920w, images/img2-3840.webp 3840w" sizes="100vw" alt="" width="1920" height="1440" fetchpriority="high"></div>
+    <div class="hero-slide"><img src="images/img5-1920.webp" srcset="images/img5-1080.webp 1080w, images/img5-1920.webp 1920w, images/img5-3840.webp 3840w" sizes="100vw" alt="" width="1920" height="1080" loading="lazy"></div>
+    <div class="hero-slide"><img src="images/img7-1920.webp" srcset="images/img7-1080.webp 1080w, images/img7-1920.webp 1920w, images/img7-3840.webp 3840w" sizes="100vw" alt="" width="1920" height="1440" loading="lazy"></div>
+  </div>
   <div class="hero-grad"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow ho-ey">Steel Fabrication · New Zealand</div>
+    <div class="hero-eyebrow ho-ey">Steel Fabrication · Dunedin</div>
     <h1>
       <span class="h1-line"><span>Built in Steel.</span></span>
       <span class="h1-line"><span><span class="org">Built to</span> <span class="dim">Last.</span></span></span>
     </h1>
-    <p class="hero-desc ho-desc">Precision steel fabrication and <strong style="color:var(--org);font-weight:600">earthquake strengthening</strong> for residential, rural, and commercial buildings — done right and built to endure New Zealand conditions.</p>
+    <p class="hero-desc ho-desc">Precision steel fabrication and <strong style="color:var(--org);font-weight:600">earthquake strengthening</strong> for residential, rural and commercial buildings, done right and built to handle New Zealand conditions.</p>
     <div class="hero-btns ho-btns">
-      <a href="#contact" class="btn-fill">Get a Free Quote →</a>
-      <a href="#earthquake" class="btn-line">Earthquake Strengthening</a>
+      <a href="tel:+64274587733" class="btn-fill"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.62 4.86 2 2 0 0 1 3.6 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6.06 6.06l.97-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg> Call Tom · 027 458 7733</a>
+      <a href="#contact" class="btn-line">Get a quote</a>
     </div>
     <div class="hero-stats ho-stats">
       <div>
@@ -298,6 +380,7 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
         <div class="h-stat-lbl">Made & Owned</div>
       </div>
     </div>
+    <a class="hero-rev ho-stats" href="https://www.google.com/search?q=Abbott+Steel+Ltd+Dunedin#lrd=0xa82ea96edd3e4775:0xb6f8aec5903f2f25,1" target="_blank" rel="noopener"><span class="st" aria-hidden="true">★★★★★</span><span><b>5.0</b> from Google reviews</span></a>
   </div>
 </section>
 
@@ -350,7 +433,7 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
       <div class="reveal">
         <p class="section-label">What We Do</p>
         <h2 class="sh">Steel Solutions for<br><em>Every Project</em></h2>
-        <p class="sec-body" style="margin-top:.8rem">From rural sheds to structural frames — Abbott Steel handles the full scope of fabrication. Custom, precise, and built to handle whatever New Zealand throws at it.</p>
+        <p class="sec-body" style="margin-top:.8rem">From rural sheds to structural frames, Abbott Steel handles the full scope of fabrication. Custom, precise, and built to handle whatever New Zealand throws at it.</p>
         <div class="svc-list">
           <div class="svc-item">
             <span class="svc-num">01</span>
@@ -384,13 +467,13 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
             <span class="svc-num">06</span>
             <div>
               <div class="svc-name">Earthquake Strengthening</div>
-              <p class="svc-desc">Structural steel retrofitting and seismic strengthening for existing buildings. A major part of what we do — keeping buildings safe and compliant.</p>
+              <p class="svc-desc">Structural steel retrofitting and seismic strengthening for existing buildings. A major part of what we do: keeping buildings safe and compliant.</p>
             </div>
           </div>
         </div>
       </div>
       <div class="services-img-wrap reveal">
-        <img src="images/img3.webp" alt="Abbott Steel — steel fabrication work" loading="lazy" decoding="async">
+        <img src="images/img3-1920.webp" srcset="images/img3-1080.webp 1080w, images/img3-1920.webp 1920w" sizes="(max-width:780px) 100vw, 520px" alt="Steel portal frame going up on a hillside site, with a crane behind" width="1440" height="1920" loading="lazy" decoding="async">
         <div class="img-badge">
           <div class="img-badge-val">Custom</div>
           <div class="img-badge-lbl">Every job built to spec</div>
@@ -411,7 +494,7 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
         </div>
         <p class="section-label">Earthquake Strengthening</p>
         <h2 class="sh">Keeping Buildings<br><em>Safe & Standing</em></h2>
-        <p class="sec-body" style="margin-top:.9rem">Earthquake strengthening is a major part of what Abbott Steel does. We design and install structural steel retrofits that bring older buildings up to current seismic standards — protecting people, property, and investment.</p>
+        <p class="sec-body" style="margin-top:.9rem">Earthquake strengthening is a major part of what Abbott Steel does. We design and install structural steel retrofits that bring older buildings up to current seismic standards, protecting people, property and investment.</p>
         <div class="eq-points">
           <div class="eq-pt">
             <div class="eq-pt-ico">
@@ -446,7 +529,7 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
       </div>
       <div class="eq-visual reveal">
         <div class="eq-main-img">
-          <img src="images/img4.webp" alt="Earthquake strengthening steel frame — Abbott Steel seismic bracing" loading="lazy" decoding="async">
+          <img src="images/img4-1920.webp" srcset="images/img4-1080.webp 1080w, images/img4-1920.webp 1920w" sizes="(max-width:860px) 100vw, 520px" alt="Steel strengthening frame with cross bracing fixed to a block wall" width="1440" height="1920" loading="lazy" decoding="async">
         </div>
         <div class="eq-stat-card">
           <div class="eq-stat-val">NBS</div>
@@ -469,19 +552,19 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
     </div>
     <div class="gallery-grid">
       <div class="gal-item reveal">
-        <img src="images/img5.webp" alt="Commercial steel building frame — Abbott Steel" loading="lazy" decoding="async">
+        <img src="images/img5-1920.webp" srcset="images/img5-1080.webp 1080w, images/img5-1920.webp 1920w" sizes="(max-width:680px) 100vw, 460px" alt="Steel frame of a large commercial building under construction" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="gal-label">Commercial Steel</div>
       </div>
       <div class="gal-item reveal">
-        <img src="images/img6.webp" alt="Custom steel outdoor furniture — Abbott Steel" loading="lazy" decoding="async">
+        <img src="images/img6-1920.webp" srcset="images/img6-1080.webp 1080w, images/img6-1920.webp 1920w" sizes="(max-width:680px) 100vw, 330px" alt="Custom steel mesh outdoor table and bench on a deck" width="1920" height="1440" loading="lazy" decoding="async">
         <div class="gal-label">Custom Fabrication</div>
       </div>
       <div class="gal-item reveal">
-        <img src="images/img7.webp" alt="Steel deck balustrades and handrails — Abbott Steel" loading="lazy" decoding="async">
+        <img src="images/img7-1920.webp" srcset="images/img7-1080.webp 1080w, images/img7-1920.webp 1920w" sizes="(max-width:680px) 100vw, 330px" alt="Steel balustrade and glass panels on a timber deck" width="1920" height="1440" loading="lazy" decoding="async">
         <div class="gal-label">Balustrades & Handrails</div>
       </div>
       <div class="gal-item reveal">
-        <img src="images/img9.webp" alt="Custom aluminium trailer — Abbott Steel" loading="lazy" decoding="async">
+        <img src="images/img9-1920.webp" srcset="images/img9-1080.webp 1080w, images/img9-1920.webp 1920w" sizes="(max-width:680px) 100vw, 330px" alt="Custom flat-deck trailer with a toolbox and headboard" width="1920" height="1440" loading="lazy" decoding="async">
         <div class="gal-label">Trailer Fabrication</div>
       </div>
     </div>
@@ -493,18 +576,23 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
   <div class="wrap">
     <div class="about-inner">
       <div class="about-img-wrap reveal">
-        <img src="images/img8.webp" alt="Abbott Steel — galvanized steelwork installation" loading="lazy" decoding="async" style="transform:rotate(0deg) scale(1);object-position:center">
+        <img src="images/img8-1920.webp" srcset="images/img8-1080.webp 1080w, images/img8-1920.webp 1920w" sizes="(max-width:820px) 100vw, 500px" alt="Galvanised steel handrail running up a garden path" width="1440" height="1920" loading="lazy" decoding="async">
       </div>
       <div class="about-text reveal">
         <p class="section-label">About Abbott Steel</p>
         <h2 class="sh">Tom Abbott & His Team.<br><em>Quality You Can Count On.</em></h2>
-        <p class="sec-body" style="margin-top:.9rem">Abbott Steel is a New Zealand-owned fabrication business run by Tom Abbott and his team of certified welders. We take pride in doing things properly — quality steel, solid welds, and workmanship that holds up. Whether your project is straightforward or complex, it gets the same care and attention every time.</p>
+        <p class="sec-body" style="margin-top:.9rem">Abbott Steel is a New Zealand-owned fabrication business run by Tom Abbott and his team of certified welders. We do things properly: quality steel, solid welds, and workmanship that holds up. Whether your project is straightforward or complex, it gets the same care and attention every time.</p>
+        <p class="sec-body" style="margin-top:.8rem">The workshop is at 722 Kaikorai Valley Road in Burnside, sharing a yard with our neighbours <a href="https://abs-sandblasting-spray-painting-ltd.vercel.app" target="_blank" rel="noopener" style="color:var(--olt)">ABS Sandblasting &amp; Spray Painting</a>, handy when your steel needs blasting and coating too.</p>
         <div class="about-points">
-          <div class="about-pt">Sitewise certified — committed to health &amp; safety on every site</div>
-          <div class="about-pt">Certified welders — skilled tradespeople with proven expertise</div>
-          <div class="about-pt">All fabrication done in-house — nothing outsourced, nothing cut short</div>
+          <div class="about-pt">Sitewise certified, committed to health &amp; safety on every site</div>
+          <div class="about-pt">Certified welders, skilled tradespeople with proven expertise</div>
+          <div class="about-pt">All fabrication done in-house, nothing outsourced, nothing cut short</div>
           <div class="about-pt">Honest pricing, clear timelines, and no surprises on the invoice</div>
           <div class="about-pt">Happy to work from your plans or design from scratch</div>
+        </div>
+        <div class="team-grid" style="margin:0 0 2rem;grid-template-columns:1fr">
+          <div class="team-card"><div class="team-av">TA</div><div><h3>Tom Abbott</h3><div class="team-role">Owner</div><p>Runs the workshop and prices every job. Call Tom directly for quotes and advice.</p></div></div>
+          <div class="team-card"><div class="team-av">CW</div><div><h3>The welding team</h3><div class="team-role">Certified welders</div><p>Fabricate and install your steel in-house, from house beams to seismic frames.</p></div></div>
         </div>
         <a href="tel:+64274587733" class="btn-fill" style="display:inline-flex">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.62 4.86 2 2 0 0 1 3.6 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6.06 6.06l.97-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
@@ -523,52 +611,69 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
         <p class="section-label">Google Reviews</p>
         <h2 class="sh">What Clients <em>Say</em></h2>
       </div>
-      <div class="rating-pill">
-        <div class="rat-num">4.9</div>
+      <a class="rating-pill" href="https://www.google.com/search?q=Abbott+Steel+Ltd+Dunedin#lrd=0xa82ea96edd3e4775:0xb6f8aec5903f2f25,1" target="_blank" rel="noopener" style="text-decoration:none">
+        <div class="rat-num">5.0</div>
         <div>
-          <div class="rat-stars">★★★★★</div>
-          <div class="rat-lbl">Google Reviews</div>
+          <div class="rat-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <div class="rat-lbl">Google rating</div>
         </div>
-      </div>
+      </a>
     </div>
-    <div class="reviews-grid">
+    <div class="reviews-grid" style="grid-template-columns:minmax(0,640px)">
       <div class="rev-card reveal">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"Couldn't be happier with the balustrades and handrails Tom's team built for us. Well-finished, exactly what we asked for, and the turnaround time was impressive. Will definitely be back."</p>
+        <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-text">"Great engineers. Very precise"</p>
         <div class="rev-meta">
-          <div class="rev-av">MH</div>
+          <div class="rev-av">CB</div>
           <div>
-            <div class="rev-name">Mike H.</div>
-            <div class="rev-loc">New Zealand</div>
-          </div>
-        </div>
-      </div>
-      <div class="rev-card reveal">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"Abbott Steel fabricated the structural steel for our new build. Solid work, great communication, and a fair price. Tom and his team know what they're doing and it shows in the finished product."</p>
-        <div class="rev-meta">
-          <div class="rev-av">JF</div>
-          <div>
-            <div class="rev-name">James F.</div>
-            <div class="rev-loc">New Zealand</div>
-          </div>
-        </div>
-      </div>
-      <div class="rev-card reveal">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"Had a custom trailer built to my specs and it's fantastic. Quality steel, great welds, and done on time. Abbott Steel is the go-to for anything fabrication in my books."</p>
-        <div class="rev-meta">
-          <div class="rev-av">DP</div>
-          <div>
-            <div class="rev-name">Dave P.</div>
-            <div class="rev-loc">New Zealand</div>
+            <div class="rev-name">Callum Bond</div>
+            <div class="rev-loc">Local Guide · Google review</div>
           </div>
         </div>
       </div>
     </div>
     <div class="review-bar reveal">
       <p>Worked with Abbott Steel? A Google review helps other Kiwis find us and lets Tom know the work is landing well.</p>
-      <a href="review.html" class="btn-fill">Leave a Review →</a>
+      <div class="rev-actions">
+        <a href="https://www.google.com/search?q=Abbott+Steel+Ltd+Dunedin#lrd=0xa82ea96edd3e4775:0xb6f8aec5903f2f25,1" target="_blank" rel="noopener" class="btn-line">See our Google reviews</a>
+        <a href="https://www.google.com/search?q=Abbott+Steel+Ltd+Dunedin#lrd=0xa82ea96edd3e4775:0xb6f8aec5903f2f25,3" target="_blank" rel="noopener" class="btn-fill">Leave a review on Google</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="section-label">Before You Call</p>
+      <h2 class="sh">Common <em>Questions</em></h2>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq">
+        <summary>Where are you based?</summary>
+        <p>Our workshop is at 722 Kaikorai Valley Road, Burnside, Dunedin. Give Tom a call to talk about where your job is and whether it suits a workshop build, an on-site install, or both.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I get a quote?</summary>
+        <p>Call Tom on <a href="tel:+64274587733">027 458 7733</a> (Monday to Friday, 7am to 4:30pm) or email us. Plans, engineer's drawings, photos and rough measurements all help us give you an accurate price.</p>
+      </details>
+      <details class="faq">
+        <summary>Can you work from my engineer's or architect's plans?</summary>
+        <p>Yes. We're happy to build from your plans or work the design out from scratch with you. For structural and seismic work, send through the engineer's drawings with your enquiry.</p>
+      </details>
+      <details class="faq">
+        <summary>Do you do earthquake strengthening on existing buildings?</summary>
+        <p>Yes, it's a major part of what we do. We fabricate and install steel frames, moment frames and bracing to the engineer's specification. Your engineer sets the design and target %NBS; we build and install the steel to match.</p>
+      </details>
+      <details class="faq">
+        <summary>What else can you make?</summary>
+        <p>House beams and structural steel, balustrades and handrails, custom trailers, and one-off or short-run fabrication like brackets, frames, platforms and outdoor furniture. If it's steel and you're not sure, ask.</p>
+      </details>
+      <details class="faq">
+        <summary>How long will my job take?</summary>
+        <p>That depends on the size of the job, materials and the current workload. Tom will give you a timeframe along with your quote, so you know what to expect before you commit.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -580,7 +685,7 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
       <div class="reveal" style="position:sticky;top:5.5rem">
         <p class="section-label">Get in Touch</p>
         <h2 class="sh">Request a<br><em>Free Quote</em></h2>
-        <p style="font-size:.9rem;color:var(--body);line-height:1.82;margin-top:.9rem;margin-bottom:2rem">Got a project in mind? Tell us what you need and Tom will get back to you with a price. No obligation — just straight-up advice from someone who knows his trade.</p>
+        <p style="font-size:.9rem;color:var(--body);line-height:1.82;margin-top:.9rem;margin-bottom:2rem">Got a project in mind? Tell us what you need and Tom will get back to you with a price. No obligation, just straight-up advice from someone who knows his trade.</p>
         <div class="c-row">
           <div class="c-ico">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.62 4.86 2 2 0 0 1 3.6 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6.06 6.06l.97-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
@@ -596,66 +701,46 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
           </div>
           <div>
             <div class="c-lbl">Email</div>
-            <div class="c-val"><a href="mailto:abbott.steel@xtra.co.nz">abbott.steel@xtra.co.nz</a></div>
+            <div class="c-val"><a href="#" data-gmail data-user="abbott.steel" data-domain="xtra.co.nz" data-su="Steel%20fabrication%20quote%20request" data-body="Hi%20Tom%2C%0A%0AI%27d%20like%20a%20quote%20for%3A%0A%0AJob%3A%0ALocation%3A%0APlans%20or%20measurements%3A%0ATimeframe%3A%0A%0AThanks%2C"><span data-email-text>Email Tom</span></a></div>
           </div>
         </div>
         <div class="c-row">
-          <div class="c-ico">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
+          <div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
-            <div class="c-lbl">Location</div>
-            <div class="c-val">New Zealand</div>
+            <div class="c-lbl">Workshop</div>
+            <div class="c-val">722 Kaikorai Valley Road, Burnside, Dunedin 9018</div>
           </div>
+        </div>
+        <div class="c-row">
+          <div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div>
+            <div class="c-lbl">Hours</div>
+            <div class="c-val">Mon to Fri, 7:00am to 4:30pm · Sat &amp; Sun closed</div>
+          </div>
+        </div>
+        <div class="socials">
+          <a href="https://www.facebook.com/search/top?q=Abbott%20Steel%20Dunedin" target="_blank" rel="noopener" aria-label="Find Abbott Steel on Facebook"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.instagram.com/explore/search/keyword/?q=Abbott%20Steel%20Dunedin" target="_blank" rel="noopener" aria-label="Find Abbott Steel on Instagram"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.tiktok.com/search?q=Abbott%20Steel%20Dunedin" target="_blank" rel="noopener" aria-label="Find Abbott Steel on TikTok"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M16.5 3c.3 2.2 1.6 3.8 3.7 4v2.6c-1.4.1-2.7-.3-3.9-1v6.1c0 3.4-2.6 5.7-5.8 5.7A5.6 5.6 0 0 1 5 14.7c.1-3 2.6-5.4 5.7-5.2v2.7a2.9 2.9 0 0 0-1-.2 2.9 2.9 0 0 0 .3 5.8c1.6 0 2.8-1.2 2.8-2.9V3h3.7z"/></svg></a>
         </div>
       </div>
-      <div class="form-card reveal">
-        <div id="formBody">
-          <form id="contactForm" action="https://formsubmit.co/wiremu.bartlett72@gmail.com" method="post" onsubmit="handleSubmit(event)">
-            <input type="hidden" name="_subject" value="New Quote Request — Abbott Steel">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_ajax" value="true">
-            <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-            <div class="frow">
-              <div>
-                <label>First Name</label>
-                <input type="text" name="firstName" placeholder="Tom" required>
-              </div>
-              <div>
-                <label>Last Name</label>
-                <input type="text" name="lastName" placeholder="Smith">
-              </div>
-            </div>
-            <label>Email</label>
-            <input type="email" name="email" placeholder="tom@example.com" required>
-            <label>Phone</label>
-            <input type="tel" name="phone" placeholder="027 000 0000">
-            <label>What do you need fabricated?</label>
-            <select name="service" required>
-              <option value="" disabled selected>Select a service</option>
-              <option>Earthquake Strengthening</option>
-              <option>Structural Steel</option>
-              <option>House Beams / Structural Steel</option>
-              <option>Balustrades & Handrails</option>
-              <option>Custom Fabrication</option>
-              <option>Trailer Fabrication</option>
-              <option>Repairs & Modifications</option>
-              <option>General Enquiry</option>
-            </select>
-            <label>Project details</label>
-            <textarea name="message" placeholder="Describe your project — size, materials, location, timeframe, and any details that help us quote accurately…" required></textarea>
-            <button type="submit" class="form-submit" id="submitBtn">Send Enquiry →</button>
-            <p class="form-note">Tom will get back to you as soon as possible.</p>
-          </form>
+      <div class="cta-card reveal">
+        <h3>Talk to Tom about your job</h3>
+        <p>The quickest way to a price is a phone call. Describe the job, and send plans or photos by email if you have them.</p>
+        <div class="cta-btns">
+          <a href="tel:+64274587733" class="btn-fill"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.62 4.86 2 2 0 0 1 3.6 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6.06 6.06l.97-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg> Call Tom · 027 458 7733</a>
+          <a href="#" class="btn-line" data-gmail data-user="abbott.steel" data-domain="xtra.co.nz" data-su="Steel%20fabrication%20quote%20request" data-body="Hi%20Tom%2C%0A%0AI%27d%20like%20a%20quote%20for%3A%0A%0AJob%3A%0ALocation%3A%0APlans%20or%20measurements%3A%0ATimeframe%3A%0A%0AThanks%2C"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email us about your project</a>
         </div>
-        <div class="form-success" id="successMsg">
-          <div style="font-size:3rem;margin-bottom:.9rem">🔩</div>
-          <h3>Enquiry Sent</h3>
-          <p>Thanks for reaching out. Tom will review your project details and be in touch shortly with a quote.</p>
-        </div>
+        <div class="cta-note">Need sandblasting or painting as well? Our yard neighbours <a href="https://abs-sandblasting-spray-painting-ltd.vercel.app" target="_blank" rel="noopener">ABS Sandblasting &amp; Spray Painting</a> can blast and coat your steel.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-band">
+  <div class="wrap">
+    <iframe class="map-frame" title="Abbott Steel location on Google Maps" src="https://www.google.com/maps?q=Abbott%20Steel%20Ltd,%20722%20Kaikorai%20Valley%20Road,%20Burnside,%20Dunedin&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
   </div>
 </section>
 
@@ -664,16 +749,25 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
   <div class="footer-inner">
     <div>
       <div class="footer-brand">Abbott <span>Steel</span></div>
-      <div class="footer-copy" style="margin-top:.35rem">Steel Fabrication · New Zealand</div>
+      <div class="footer-copy" style="margin-top:.35rem">Steel Fabrication · Dunedin</div>
+      <div class="socials" style="margin-top:1rem">
+          <a href="https://www.facebook.com/search/top?q=Abbott%20Steel%20Dunedin" target="_blank" rel="noopener" aria-label="Find Abbott Steel on Facebook"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.instagram.com/explore/search/keyword/?q=Abbott%20Steel%20Dunedin" target="_blank" rel="noopener" aria-label="Find Abbott Steel on Instagram"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.tiktok.com/search?q=Abbott%20Steel%20Dunedin" target="_blank" rel="noopener" aria-label="Find Abbott Steel on TikTok"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M16.5 3c.3 2.2 1.6 3.8 3.7 4v2.6c-1.4.1-2.7-.3-3.9-1v6.1c0 3.4-2.6 5.7-5.8 5.7A5.6 5.6 0 0 1 5 14.7c.1-3 2.6-5.4 5.7-5.2v2.7a2.9 2.9 0 0 0-1-.2 2.9 2.9 0 0 0 .3 5.8c1.6 0 2.8-1.2 2.8-2.9V3h3.7z"/></svg></a>
+        </div>
     </div>
     <div class="footer-links">
       <a href="#services">Services</a>
       <a href="#earthquake">Earthquake Strengthening</a>
       <a href="#work">Our Work</a>
       <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 Abbott Steel</div>
+    <div>
+      <div class="footer-copy">© <span id="year">2026</span> Abbott Steel Ltd · Dunedin, New Zealand</div>
+      <div class="footer-legal" style="margin-top:.5rem"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="https://www.google.com/search?q=Abbott+Steel+Ltd+Dunedin#lrd=0xa82ea96edd3e4775:0xb6f8aec5903f2f25,3" target="_blank" rel="noopener">Leave a review</a></div>
+    </div>
   </div>
 </footer>
 
@@ -697,17 +791,24 @@ const obs = new IntersectionObserver((entries) => {
   });
 }, {threshold: 0.08});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-async function handleSubmit(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  btn.textContent = 'Sending…'; btn.disabled = true;
-  try {
-    const res = await fetch(e.target.action, {method:'POST', body: new FormData(e.target)});
-    const json = await res.json();
-    if (json.success) { document.getElementById('formBody').style.display='none'; document.getElementById('successMsg').classList.add('show'); }
-    else { throw new Error(); }
-  } catch { btn.textContent='Error — try again'; btn.style.background='#b91c1c'; btn.disabled=false; }
+// Hero rotation (paused for reduced motion)
+const slides = [...document.querySelectorAll('.hero-slide')];
+if (slides.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let idx = 0;
+  setInterval(() => { slides[idx].classList.remove('active'); idx = (idx + 1) % slides.length; slides[idx].classList.add('active'); }, 6000);
 }
+// Mobile menu
+const burger = document.querySelector('.burger');
+burger.addEventListener('click', () => { const open = nav.classList.toggle('menu-open'); burger.setAttribute('aria-expanded', open); });
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('menu-open'); burger.setAttribute('aria-expanded', 'false'); }));
+// Gmail compose links, built from parts so the address is never scraped or rewritten
+document.querySelectorAll('a[data-gmail]').forEach(a => {
+  const to = a.dataset.user + '@' + a.dataset.domain;
+  a.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to) + '&su=' + (a.dataset.su || '') + '&body=' + (a.dataset.body || '');
+  a.target = '_blank'; a.rel = 'noopener';
+  const t = a.querySelector('[data-email-text]'); if (t) t.textContent = to;
+});
+document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
