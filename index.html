@@ -269,6 +269,28 @@ form textarea{resize:vertical;min-height:118px}
 @media(max-width:600px){.cta-card{padding:1.6rem 1.25rem}.wrap{padding:0 1.25rem}.nav-inner{padding:0 1.25rem}.hero-content{padding:0 1.25rem 4rem}}
 @media(prefers-reduced-motion:reduce){.hero-slide{transition:none}.reveal{opacity:1;transform:none;transition:none}}
 
+/* SWITCH + SISTER */
+.nav-switch{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .95rem;border:1px solid var(--bord);border-radius:30px;color:#fff!important;background:rgba(217,94,24,.08);font-size:.78rem;font-weight:600;transition:background .25s,border-color .25s}
+.nav-switch svg{color:var(--org);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.nav-switch:hover{background:rgba(217,94,24,.2);border-color:var(--org)}
+.nav-switch:hover svg{transform:rotate(180deg)}
+.nav-m .nav-switch{width:44px;height:44px;padding:0;justify-content:center;border-radius:8px}
+.nav-links a{white-space:nowrap}
+.nav-logo{flex-shrink:0}.nav-inner{gap:2rem}.nav-logo-main{white-space:nowrap}
+@media(max-width:440px){.nav-logo-main{font-size:1.15rem;white-space:nowrap}.nav-m{gap:.45rem}.nav-m .nav-cta{padding:.7rem .8rem}}
+@media(max-width:1180px) and (min-width:701px){.nav-links{gap:1.3rem}}
+@media(max-width:1040px) and (min-width:701px){.nav-links{gap:1rem}.nav-links a{font-size:.78rem}.nav-links .nav-switch span{display:none}.nav-links .nav-switch{padding:.5rem .6rem}}
+@media(max-width:900px) and (min-width:701px){.nav-links a[href="#earthquake"]{display:none}}
+.sister{position:relative;padding:7rem 0;background:radial-gradient(90% 120% at 100% 50%,rgba(217,94,24,.12),transparent 60%),var(--dk);border-top:1px solid var(--line);overflow:hidden}
+.sister-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.sister-media{position:relative}
+.sister-media img{width:100%;height:auto;border-radius:20px;box-shadow:0 30px 70px -30px rgba(0,0,0,.85)}
+.sister-tag{position:absolute;left:-1.2rem;bottom:-1.2rem;background:rgba(12,16,22,.92);backdrop-filter:blur(12px);border:1px solid var(--bord);border-radius:12px;padding:.9rem 1.2rem}
+.sister-tag b{display:block;font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:900;color:var(--org);line-height:1}
+.sister-tag span{display:block;font-size:.66rem;letter-spacing:.08em;color:var(--muted);margin-top:.3rem}
+.sister-btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+@media(max-width:860px){.sister-grid{grid-template-columns:1fr;gap:3rem}.sister-media{order:-1}.sister-tag{left:.8rem;bottom:.8rem}.sister-btns a{width:100%;justify-content:center}}
+
 /* FOOTER */
 footer{background:var(--s1);border-top:1px solid var(--line);padding:2.4rem 0}
 .footer-inner{max-width:1120px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
@@ -350,9 +372,11 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
+      <a href="https://abs-sandblasting-spray-painting-ltd.vercel.app" class="nav-switch" target="_blank" rel="noopener" title="Switch to ABS Sandblasting &amp; Spray Painting, next door" aria-label="Switch to ABS Sandblasting"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4L3 8l4 4"/><path d="M3 8h13a4 4 0 0 1 4 4"/><path d="M17 20l4-4-4-4"/><path d="M21 16H8a4 4 0 0 1-4-4"/></svg><span>ABS</span></a>
       <a href="tel:+64274587733" class="nav-cta">027 458 7733</a>
     </div>
     <div class="nav-m">
+      <a href="https://abs-sandblasting-spray-painting-ltd.vercel.app" class="nav-switch" target="_blank" rel="noopener" aria-label="Switch to ABS Sandblasting"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4L3 8l4 4"/><path d="M3 8h13a4 4 0 0 1 4 4"/><path d="M17 20l4-4-4-4"/><path d="M21 16H8a4 4 0 0 1-4-4"/></svg></a>
       <a href="tel:+64274587733" class="nav-cta" aria-label="Call Tom on 027 458 7733">Call Tom</a>
       <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
     </div>
@@ -583,6 +607,25 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
   </div>
 </section>
 
+<!-- SISTER BUSINESS -->
+<section class="sister" id="abs">
+  <div class="wrap sister-grid">
+    <div class="sister-copy reveal">
+      <p class="section-label">Our Neighbours Next Door</p>
+      <h2 class="sh">Need it blasted &amp; painted? <em>ABS does it.</em></h2>
+      <p class="sec-body" style="margin-top:.9rem">ABS Sandblasting &amp; Spray Painting shares our yard on Kaikorai Valley Road. Once your steel is fabricated, they can abrasive blast it, spray paint it and apply protective coatings or galvanising, so it's built, blasted and coated in one place without a trip across town.</p>
+      <div class="sister-btns">
+        <a href="https://abs-sandblasting-spray-painting-ltd.vercel.app" class="btn-fill" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4L3 8l4 4"/><path d="M3 8h13a4 4 0 0 1 4 4"/><path d="M17 20l4-4-4-4"/><path d="M21 16H8a4 4 0 0 1-4-4"/></svg> Visit ABS Sandblasting</a>
+        <a href="tel:+64274587733" class="btn-line"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call Tom · 027 458 7733</a>
+      </div>
+    </div>
+    <div class="sister-media reveal">
+      <img src="images/abs-yard-1920.webp" srcset="images/abs-yard-1080.webp 1080w, images/abs-yard-1920.webp 1920w" sizes="(max-width:860px) 100vw, 520px" alt="The ABS Sandblasting sheds and yard on Kaikorai Valley Road" loading="lazy" decoding="async" width="1920" height="1080">
+      <div class="sister-tag"><b>Same yard</b><span>Fabricate · Blast · Coat</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="wrap">
@@ -775,6 +818,7 @@ nav.nav-in{opacity:1;transform:translateY(0);transition:opacity .65s ease,transf
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
+      <a href="https://abs-sandblasting-spray-painting-ltd.vercel.app" target="_blank" rel="noopener">ABS Sandblasting (next door)</a>
     </div>
     <div>
       <div class="footer-copy">© <span id="year">2026</span> Abbott Steel Ltd · Dunedin, New Zealand</div>
