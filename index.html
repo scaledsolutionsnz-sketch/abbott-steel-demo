@@ -87,15 +87,16 @@ nav.scrolled{background:rgba(12,16,22,.95)!important;backdrop-filter:blur(20px)}
 .h-stat-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:var(--text);line-height:1;letter-spacing:-.01em}
 .h-stat-lbl{font-size:.63rem;font-weight:500;color:rgba(160,180,200,.6);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
 
-/* STRIP */
+/* STRIP: four equal boxes, content centred in each */
 .strip{background:var(--s1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.strip-inner{max-width:1120px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:repeat(4,1fr)}
-.strip-item{display:flex;align-items:center;gap:.9rem;padding:1.55rem 0;border-right:1px solid var(--line)}
-.strip-item:last-child{border-right:none}
-.strip-ico{color:var(--org);flex-shrink:0}
-.strip-title{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;color:var(--text);line-height:1.2}
-.strip-sub{font-size:.71rem;color:var(--muted);margin-top:.1rem}
-@media(max-width:680px){.strip-inner{grid-template-columns:1fr 1fr}.strip-item:nth-child(2){border-right:none}.strip-item:nth-child(3){border-right:1px solid var(--line)}.strip-item{padding:1.2rem .6rem}}
+.strip-inner{max-width:1120px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.strip-item{display:flex;align-items:center;justify-content:center;gap:.9rem;padding:1.6rem 1rem;border-right:1px solid var(--line);min-width:0}
+.strip-item:first-child{border-left:1px solid var(--line)}
+.strip-ico{color:var(--org);flex-shrink:0;width:40px;height:40px;border:1px solid var(--bord);border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--bdim)}
+.strip-title{font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;color:var(--text);line-height:1.2}
+.strip-sub{font-size:.74rem;color:var(--body);margin-top:.2rem}
+@media(max-width:900px){.strip-inner{grid-template-columns:repeat(2,minmax(0,1fr));padding:0}.strip-item{justify-content:flex-start;padding:1.3rem 1.25rem;border-left:none}.strip-item:first-child{border-left:none}.strip-item:nth-child(2n){border-right:none}.strip-item:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:420px){.strip-item{flex-direction:column;align-items:flex-start;gap:.6rem}}
 
 /* SECTION COMMON */
 .section-label{font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--org);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
